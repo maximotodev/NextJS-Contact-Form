@@ -29,6 +29,7 @@ export default function ContactForm() {
     });
 
     const { msg, success } = await res.json();
+    console.log(msg, success);
     setError(msg);
     setSuccess(success);
 
@@ -53,6 +54,7 @@ export default function ContactForm() {
             type="text"
             id="fullname"
             placeholder="John Doe"
+            required
           />
         </div>
 
@@ -64,6 +66,7 @@ export default function ContactForm() {
             type="text"
             id="email"
             placeholder="john@gmail.com"
+            required
           />
         </div>
 
@@ -75,6 +78,7 @@ export default function ContactForm() {
             className="h-32"
             id="message"
             placeholder="Type your message here..."
+            required
           ></textarea>
         </div>
 
@@ -87,6 +91,7 @@ export default function ContactForm() {
         {error &&
           error.map((e) => (
             <div
+              key={e}
               className={`${
                 success ? "text-green-800" : "text-red-600"
               } px-5 py-2`}
